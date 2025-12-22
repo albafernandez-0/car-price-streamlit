@@ -54,12 +54,13 @@ if submitted:
         "Color": "Black",
         "Airbags": 2
     }])
-try:
+    try:
         prediction = model.predict(input_df)[0]
         st.success(f"💰 Precio estimado: {prediction:,.2f}")
-except Exception as e:
+    except Exception as e:
         st.error("❌ Error al hacer la predicción")
         st.exception(e)
+
 
 
 
