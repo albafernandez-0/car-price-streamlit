@@ -1,6 +1,6 @@
 import streamlit as st
 st.write("✅ app.py se está ejecutando")
-st.stop()
+
 
 
 import streamlit as st
@@ -14,6 +14,7 @@ def load_model():
     return joblib.load("model.pkl")
 
 model = load_model()
+
 
 
 
