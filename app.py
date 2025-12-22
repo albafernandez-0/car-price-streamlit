@@ -35,34 +35,33 @@ with st.form("car_form"):
     submitted = st.form_submit_button("Predecir precio")
 
 if submitted:
-    # IMPORTANTE: nombres EXACTOS como en el entrenamiento
-   input_df = pd.DataFrame([{
-    "ID": 0,
-    "Levy": 0,
-    "Manufacturer": "Unknown",
-    "Model": "Unknown",
-    "Prod. year": prod_year,
-    "Category": "Unknown",
-    "Leather interior": "No",
-    "Fuel type": "Petrol",
-    "Engine volume": engine_volume,
-    "Mileage": mileage,
-    "Cylinders": cylinders,
-    "Gear box type": "Automatic",
-    "Drive wheels": "Front",
-    "Doors": "04-May",
-    "Wheel": "Left wheel",
-    "Color": "Black",
-    "Airbags": 2
-}])
-
-
-    try:
+    input_df = pd.DataFrame([{
+        "ID": 0,
+        "Levy": 0,
+        "Manufacturer": "Unknown",
+        "Model": "Unknown",
+        "Prod. year": prod_year,
+        "Category": "Unknown",
+        "Leather interior": "No",
+        "Fuel type": "Petrol",
+        "Engine volume": engine_volume,
+        "Mileage": mileage,
+        "Cylinders": cylinders,
+        "Gear box type": "Automatic",
+        "Drive wheels": "Front",
+        "Doors": "04-May",
+        "Wheel": "Left wheel",
+        "Color": "Black",
+        "Airbags": 2
+    }])
+try:
         prediction = model.predict(input_df)[0]
         st.success(f"💰 Precio estimado: {prediction:,.2f}")
-    except Exception as e:
+except Exception as e:
         st.error("❌ Error al hacer la predicción")
         st.exception(e)
+
+
 
 
 
