@@ -12,7 +12,7 @@ st.title("🚗 Predicción de precios de automóviles")
 # Cargar modelo (con cache para que no se recargue siempre)
 @st.cache_resource
 def load_model():
-    return joblib.load("model.pkl")
+    return joblib.load("model.joblib")
 
 try:
     model = load_model()
@@ -60,6 +60,7 @@ if submitted:
     except Exception as e:
         st.error("❌ Error al hacer la predicción")
         st.exception(e)
+
 
 
 
